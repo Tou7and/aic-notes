@@ -1,0 +1,12 @@
+# Install 3.7
+sudo apt-get install python3.7
+
+# Set 3.7 as first order
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
+
+# Check
+python3 -V
+
+# Install pip3 for 3.7
+python3 -m pip install --upgrade pip
+
