@@ -8,6 +8,7 @@ import pandas as pd
 from datasets import load_dataset, load_metric
 from datasets import ClassLabel
 
+
 def show_random_elements(dataset, num_examples=10):
     assert num_examples <= len(dataset), "Can't pick more elements than there are in the dataset."
     picks = []
@@ -33,7 +34,7 @@ def speech_file_to_array_fn(batch, resample=True):
     speech_array, sampling_rate = torchaudio.load(batch["path"])
     batch["speech"] = speech_array[0].numpy()
     batch["sampling_rate"] = sampling_rate
-    batch["target_text"] = batch["sentence"]
+    batch["target_text"] = batch["text"]
     if resample:
         batch["speech"] = librosa.resample(np.asarray(batch["speech"]), 48_000, 16_000)
         batch["sampling_rate"] = 16_000

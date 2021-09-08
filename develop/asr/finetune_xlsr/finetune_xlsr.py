@@ -1,9 +1,11 @@
 """ An Easy Wav2vec2.0 Training Pipeline
 """
+import sys
 import random
 import re
 import json
 import pandas as pd
+import numpy as np
 from datasets import load_dataset, load_metric
 from datasets import ClassLabel
 
@@ -11,22 +13,39 @@ import torch
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Union
 
-# Load customized functions
-from utils import show_random_elements, preprocess_text, speech_file_to_array_fn
-
-print("Prepare Processor (Tokenizer + Feature Extractor) ...")
 from transformers import Wav2Vec2CTCTokenizer
 from transformers import Wav2Vec2FeatureExtractor
 from transformers import Wav2Vec2Processor
-tokenizer = Wav2Vec2CTCTokenizer("./data/vocab.json", unk_token="[UNK]", pad_token="[PAD]", word_delimiter_token="|")
-feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, sampling_rate=16000, padding_value=0.0, do_normalize=True, return_attention_mask=True)
-PROCESSOR = Wav2Vec2Processor(feature_extractor=feature_extractor, tokenizer=tokenizer)
-PROCESSOR.save_pretrained("./data/wav2vec2-large-xlsr-tw-demo")
+from transformers import TrainingArguments
+from transformers import Wav2Vec2ForCTC
+from transformers import Trainer
+
+from utils import show_random_elements, preprocess_text, speech_file_to_array_fn
+from prepare_cvtw import prepare_cvtw_local
+
+print("Prepare Processor (Tokenizer + Feature Extractor) ...")
+tokenizer = Wav2Vec2CTCTokenizer(
+    "/media/volume1/aicasr/Manifests/vocab/enchars/hugface/vocab.json", 
+    unk_token="[UNK]", 
+    pad_token="[PAD]", 
+    word_delimiter_token="|")
+
+feature_extractor = Wav2Vec2FeatureExtractor(
+    feature_size=1, 
+    sampling_rate=16000, 
+    padding_value=0.0, 
+    do_normalize=True, 
+    return_attention_mask=True)
+
+PROCESSOR = Wav2Vec2Processor(
+    feature_extractor=feature_extractor, 
+    tokenizer=tokenizer)
+
+PROCESSOR.save_pretrained("./tmp/wav2vec2-large-xlsr-tw-demo")
 
 print("Setup Training Args")
-from transformers import TrainingArguments
 TRAINING_ARGS = TrainingArguments(
-    output_dir="./wav2vec2-large-xlsr-tw-demo",
+    output_dir="./tmp/wav2vec2-large-xlsr-tw-demo",
     group_by_length=True,
     per_device_train_batch_size=16,
     gradient_accumulation_steps=2,
@@ -40,8 +59,6 @@ TRAINING_ARGS = TrainingArguments(
     warmup_steps=500,
     save_total_limit=3,
 )
-from transformers import Wav2Vec2ForCTC
-
 
 def prepare_dataset(batch):
     # check that all files have the correct sampling rate
@@ -54,7 +71,6 @@ def prepare_dataset(batch):
     with PROCESSOR.as_target_processor():
         batch["labels"] = PROCESSOR(batch["target_text"]).input_ids
     return batch
-
 
 @dataclass
 class DataCollatorCTCWithPadding:
@@ -116,24 +132,46 @@ class DataCollatorCTCWithPadding:
         batch["labels"] = labels
         return batch
 
-def training():
+def compute_metrics(pred):
+    pred_logits = pred.predictions
+    pred_ids = np.argmax(pred_logits, axis=-1)
+
+    pred.label_ids[pred.label_ids == -100] = PROCESSOR.tokenizer.pad_token_id
+
+    pred_str = PROCESSOR.batch_decode(pred_ids)
+    # we do not want to group tokens when computing the metrics
+    label_str = PROCESSOR.batch_decode(pred.label_ids, group_tokens=False)
+
+    wer_metric = load_metric("wer")
+    wer = wer_metric.compute(predictions=pred_str, references=label_str)
+
+    return {"wer": wer}
+
+def main():
     """ Training pipeline.
 
-    1. Prepare processor and process training data
+    1. Prepare data
     2. Train
     3. Eval
 
     """
     print("Process training data ...")
-    common_voice_train = common_voice_train.map(speech_file_to_array_fn, remove_columns=common_voice_train.column_names)
-    common_voice_valid = common_voice_valid.map(speech_file_to_array_fn, remove_columns=common_voice_valid.column_names)
-    common_voice_test = common_voice_test.map(speech_file_to_array_fn, remove_columns=common_voice_test.column_names)
-
-    common_voice_train = common_voice_train.map(prepare_dataset, remove_columns=common_voice_train.column_names, batch_size=8, num_proc=4, batched=True)
-    common_voice_valid = common_voice_valid.map(prepare_dataset, remove_columns=common_voice_valid.column_names, batch_size=8, num_proc=4, batched=True)
-    common_voice_test = common_voice_test.map(prepare_dataset, remove_columns=common_voice_test.column_names, batch_size=8, num_proc=4, batched=True)
+    print("-"*30)
+    dataset_cvtw = prepare_cvtw_local(
+        "/media/volume1/aicasr/Manifests/commonvoice_tw/v02/pinyin/small/",
+        "/media/volume1/aicasr/Manifests/vocab/enchars/vocab_pinyin.json"
+    )
+    # common_voice_train = common_voice_train.map(speech_file_to_array_fn, remove_columns=common_voice_train.column_names)
+    # common_voice_valid = common_voice_valid.map(speech_file_to_array_fn, remove_columns=common_voice_valid.column_names)
+    # common_voice_test = common_voice_test.map(speech_file_to_array_fn, remove_columns=common_voice_test.column_names)
+    dataset_cvtw = dataset_cvtw.map(speech_file_to_array_fn)
+    dataset_cvtw = dataset_cvtw.map(prepare_dataset, batch_size=8, num_proc=4, batched=True)
+    # common_voice_train = common_voice_train.map(prepare_dataset, remove_columns=common_voice_train.column_names, batch_size=8, num_proc=4, batched=True)
+    # common_voice_valid = common_voice_valid.map(prepare_dataset, remove_columns=common_voice_valid.column_names, batch_size=8, num_proc=4, batched=True)
+    # common_voice_test = common_voice_test.map(prepare_dataset, remove_columns=common_voice_test.column_names, batch_size=8, num_proc=4, batched=True)
 
     print("Setup trainer ...")
+    print("-"*30)
     data_collator = DataCollatorCTCWithPadding(processor=PROCESSOR, padding=True)
 
     print("Load pretrained Wave2vec2.0 ...")
@@ -150,16 +188,19 @@ def training():
         vocab_size=len(PROCESSOR.tokenizer)
     )
     model.freeze_feature_extractor()
-
-    from transformers import Trainer
+    print("Start Training ... ")
+    print("-"*30)
     trainer = Trainer(
         model=model,
         data_collator=data_collator,
         args=TRAINING_ARGS,
         compute_metrics=compute_metrics,
-        train_dataset=common_voice_train,
-        eval_dataset=common_voice_valid,
+        train_dataset=dataset_cvtw['train'],
+        eval_dataset=dataset_cvtw['dev'],
         tokenizer=PROCESSOR.feature_extractor,
     )
     trainer.train()
+
+if __name__ == "__main__":
+    main()
 
