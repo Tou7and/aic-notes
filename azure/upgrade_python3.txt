@@ -1,3 +1,4 @@
+# ref: https://rajputankit22.medium.com/upgrade-python-2-7-to-3-6-and-3-7-in-ubuntu-97d2727bf911
 # Install 3.7
 sudo apt-get install python3.7
 
