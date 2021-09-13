@@ -3,9 +3,9 @@ import time
 import torchaudio
 from speechbrain.pretrained import EncoderClassifier
 
-audio = 'D:/projects/audio-content-analysis/tests/icestorm_16k.wav'
+audio = '/media/volume1/aicasr/meta-transfer-asr/tests/774.wav'
 classifier = EncoderClassifier.from_hparams(
-        source="D:/models/spkrec-xvect-voxceleb", 
+        source="speechbrain/spkrec-xvect-voxceleb", 
         savedir="pretrained_models/spkrec-xvect-voxceleb")
 
 t_start = time.time()

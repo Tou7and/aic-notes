@@ -6,34 +6,9 @@ import pandas as pd
 from datasets import load_dataset, load_metric
 from datasets import ClassLabel
 
-def read_text(batch):
-    # speech_array, sampling_rate = torchaudio.load(batch["path"])
-    with open(batch["text_path"], "r") as reader:
-        batch["sentence"] = reader.read().strip()
-    chars_to_ignore_regex = '[\,\?\.\!\-\;\:\"\“\%\‘\”\�\，\？\。\、\！\「\」]'
-    batch["sentence"] = re.sub(chars_to_ignore_regex, '', batch["sentence"]) + " "
-    batch["sentence"] = " ".join(list(batch["sentence"]))
-    batch["sentence"] = re.sub(' +', ' ', batch["sentence"])
-    return batch
-
-def prepare_ner_vol1(manifest_dir, vocab_file):
-    """ Prepare NER Vol1 corpus for Wav2vec2.0 fine-tuning.
-
-    Manifest directory:
-        /mnt/smb01/Manifests/mtasr/ner_pp/vol1/
-    Vocab file:
-        /mnt/smb01/Models/v10/vocab_labels.json
-
-    Src Columns: path, text_path, duration, n_words
-    Dst Columns: path, sentence  
-
-    Returns:
-        dataset (dict)
-        vocab_dict (dict)
+def prepare_cvtw_local(manifest_dir, vocab_file):
+    """ Use pre-defined local manifests of commonvoice-tw
     """
-    train_csv = os.path.join(manifest_dir, "train.csv")
-    dev_csv = os.path.join(manifest_dir, "dev.csv")
-
     with open(vocab_file, 'r') as reader:
         vocab_list = json.load(reader)
     # vocab_list = list(set(vocab_train["vocab"][0]) | set(vocab_test["vocab"][0]) | set(vocab_valid["vocab"][0]))
@@ -44,20 +19,25 @@ def prepare_ner_vol1(manifest_dir, vocab_file):
     vocab_dict["[PAD]"] = len(vocab_dict)
     print("Number of vocabulary: ", len(vocab_dict))
 
-    the_dataset = load_dataset('csv', data_files={'train': [train_csv], 'dev': [dev_csv]}, column_names=["path", "text_path", "duration", "n_words"])
-    the_dataset = the_dataset.map(read_text)
+    train_csv = os.path.join(manifest_dir, "train.csv")
+    dev_csv = os.path.join(manifest_dir, "dev.csv")
+    test_csv = os.path.join(manifest_dir, "test.csv")
+    the_dataset = load_dataset(
+        'csv', 
+        data_files={'train': [train_csv], 'dev': [dev_csv], 'test': [test_csv]}, 
+        column_names=["path", "text", "duration", "n_words"]
+    )
 
-    the_dataset = the_dataset.remove_columns(["text_path", "duration", "n_words"])
+    # the_dataset = the_dataset.map(read_text)
+    # the_dataset = the_dataset.remove_columns(["text", "duration", "n_words"])
+
     print(len(the_dataset))
     show_random_elements(the_dataset["train"])
     show_random_elements(the_dataset["dev"])
-    return the_dataset, vocab_dict
+    show_random_elements(the_dataset["test"])
+    return the_dataset
 
-def prepare_nursing():
-
-    return
-
-def prepare_commonvoice():
+def prepare_cvtw_online():
     common_voice_train = load_dataset("common_voice", "zh-TW", split="train")
     common_voice_valid = load_dataset("common_voice", "zh-TW", split="validation")
     common_voice_test = load_dataset("common_voice", "zh-TW", split="test")
@@ -79,6 +59,16 @@ def prepare_commonvoice():
     common_voice_test.to_csv("data/test.csv", index=None)
     common_voice_valid.to_csv("data/valid.csv", index=None)
 
+def read_text(batch):
+    # speech_array, sampling_rate = torchaudio.load(batch["path"])
+    with open(batch["text_path"], "r") as reader:
+        batch["sentence"] = reader.read().strip()
+    chars_to_ignore_regex = '[\,\?\.\!\-\;\:\"\“\%\‘\”\�\，\？\。\、\！\「\」]'
+    batch["sentence"] = re.sub(chars_to_ignore_regex, '', batch["sentence"]) + " "
+    batch["sentence"] = " ".join(list(batch["sentence"]))
+    batch["sentence"] = re.sub(' +', ' ', batch["sentence"])
+    return batch
+
 def show_random_elements(dataset, num_examples=10):
     assert num_examples <= len(dataset), "Can't pick more elements than there are in the dataset."
     picks = []
@@ -92,8 +82,9 @@ def show_random_elements(dataset, num_examples=10):
     # display(HTML(df.to_html()))
     print(df)
 
-dataset_ner, vocab_dict = prepare_ner_vol1(
-    "/mnt/smb01/Manifests/mtasr/ner_pp/vol1/",
-    "/mnt/smb01/Models/v10/vocab_labels.json"
-)
+if __name__ == "__main__":
+    dataset_cvtw = prepare_cvtw_local(
+        "/media/volume1/aicasr/Manifests/commonvoice_tw/v02/pinyin/",
+        "/media/volume1/aicasr/Manifests/vocab/enchars/vocab_pinyin.json"
+    )
 
