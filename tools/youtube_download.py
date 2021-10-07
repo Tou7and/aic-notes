@@ -99,4 +99,4 @@ def download_wave_from_youtube(link, dst_filename, dst_dir="/Users/mac/Downloads
     ydl_p.run()
 
 if __name__ == "__main__":
-    download_wave_from_youtube("https://www.youtube.com/watch?v=aLLDO8fhUL8", "dindong-full")
+    download_wave_from_youtube("https://www.youtube.com/watch?v=gdPFOF91xb0", "coin-sound")
