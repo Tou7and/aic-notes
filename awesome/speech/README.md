@@ -150,3 +150,12 @@ code switching 語料: 馬來西亞中文+英文
 [Common Voice](https://commonvoice.mozilla.org/zh-TW)
 Powerd by Mozilla
 
+## Blogs
+
+[An All-Neural On-Device Speech Recognizer](https://ai.googleblog.com/2019/03/an-all-neural-on-device-speech.html)
+- RNN-T
+- real-time
+- parallel implementation
+- decoder ~= a Finite State Transducer (FST)
+- all-neural, on-device Gboard speech recognizer on all Pixel phones (American English only)
+

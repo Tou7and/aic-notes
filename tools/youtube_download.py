@@ -99,4 +99,6 @@ def download_wave_from_youtube(link, dst_filename, dst_dir="/Users/mac/Downloads
     ydl_p.run()
 
 if __name__ == "__main__":
-    download_wave_from_youtube("https://www.youtube.com/watch?v=lPzEeqDo3as", "kda-2020")
+    if len(sys.argv) != 3:
+        sys.exit("Usage: python youtube_download.py [URL] [FILE-NAME]")
+    download_wave_from_youtube(sys.argv[1], sys.argv[2])

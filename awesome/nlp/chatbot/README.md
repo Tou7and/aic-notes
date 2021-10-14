@@ -1,10 +1,16 @@
-# Medical Applications which utilize ASR/NLP
-As title.
+# Chatbot
 
-# Papers
+## Blogs
+[Five Levels of AI Assistants in Enterprise](https://rasa.com/blog/conversational-ai-your-guide-to-five-levels-of-ai-assistants-in-enterprise/)
+2018, RASA
+- Level 1: Notification Assistants (Last 10 years)
+- Level 2: FAQ Assistants (Now)
+- Level 3: Contextual Assistants (Within 2 years)
+- Level 4: Personalized Assistants (In 3-5 years)
+- Level 5: Autonomous Organization of Assistants (In 10 years)
 
-## Voice Assistant / Chatbot Applications
 
+## Papers - Medical Applications
 [A Personalized Voice-Based Diet Assistant for Caregivers of Alzheimer Disease and Related Dementias: System Development and Validation](https://www.jmir.org/2020/9/e19897)
 2020, JMIR
 - Front-end: Build with Alexa (Alexa Skills Kit)
@@ -22,4 +28,11 @@ As title.
 2020, Australasian Computer Science Week Multiconference
 - The HHH System Architecture
 - A question-and-answer framework that combines knowledge graph and HBAM
+
+[Utilization of Self-Diagnosis Health Chatbots in Real-World Settings: Case Study](https://www.jmir.org/2021/1/e19928)
+2021, JMIR
+- How health chatbots are used in a real-world context
+- Limitations
+  - this study relied heavily on log data
+  - lack of user perceptions and opinions when interacting with the chatbot
 
