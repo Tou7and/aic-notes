@@ -53,6 +53,12 @@ convolution-augmented transformer for speech recognition, 2020, Google
 [Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss](https://arxiv.org/abs/2002.02562)
 2020, Google.
 
+[DEVELOPING REAL-TIME STREAMING TRANSFORMER TRANSDUCER FOR SPEECH RECOGNITION ON LARGE-SCALE DATASET](https://arxiv.org/pdf/2010.11395.pdf)
+2021, Microsoft.
+- Real Time (RTF < 1)
+- transducer architecture
+- Transformer-XL and chunk-wise streaming
+
 [SpeechBrain: A General-Purpose Speech Toolkit](https://arxiv.org/pdf/2106.04624.pdf)
 2021, Mirco Ravanelli, Titouan Parcollet, Yoshua Bengio
 
