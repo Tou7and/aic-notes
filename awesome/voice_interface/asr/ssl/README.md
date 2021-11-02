@@ -19,8 +19,13 @@
 [UNISPEECH-SAT: UNIVERSAL SPEECH REPRESENTATION LEARNING WITH SPEAKER AWARE PRE-TRAINING](https://arxiv.org/pdf/2110.05752.pdf)
 - integrate our proposed training method in the HuBERT framework
   - utterance-wise contrastive loss
-  - utterance-mixing training strategy) 
+  - utterance-mixing training strategy 
 - conduct experiment on Speech processing Universal PERformance Benchmark (SUPERB)
+
+[Microsoft/UniSpeech](https://github.com/microsoft/UniSpeech)
+- UniSpeech-SAT
+- UniSpeech
+- WavLM
 
 [HugglingFace - UNISPEECH-SAT](https://huggingface.co/microsoft/unispeech-sat-base-plus)
 
