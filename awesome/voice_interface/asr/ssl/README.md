@@ -16,6 +16,8 @@
 
 
 ## UNISPEECH-SAT
+似乎是基於 fairseq 開發，在 SuperB 的計分板分數很高  
+
 [UNISPEECH-SAT: UNIVERSAL SPEECH REPRESENTATION LEARNING WITH SPEAKER AWARE PRE-TRAINING](https://arxiv.org/pdf/2110.05752.pdf)
 - integrate our proposed training method in the HuBERT framework
   - utterance-wise contrastive loss
