@@ -2,6 +2,9 @@
 The term SLP is used in the introduction section of the
 [MOCKINGJAY Paper (2020)](https://arxiv.org/pdf/1910.12638.pdf).
 
+## SUPERB: Speech processing Universal PERformance Benchmark
+[SUPERB official site](https://superbbenchmark.org/)
+
 ## SLP Tasks
 [SUPERB](https://superbbenchmark.org/tasks) defines 10 speech processing tasks from 6 domains.
 - Recognition

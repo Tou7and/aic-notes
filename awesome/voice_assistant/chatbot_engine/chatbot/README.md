@@ -1,5 +1,16 @@
 # Chatbot
 
+## RASA
+Deployment
+- [Deploying Your Rasa Assistant](https://rasa.com/docs/rasa/how-to-deploy#using-your-custom-action-server-image)
+- [Custom Rasa NLU Docker Containers](https://rasa.com/blog/custom-rasa-nlu-docker-container/)
+- [Building a Rasa Assistant in Docker](https://rasa.com/docs/rasa/docker/building-in-docker/)
+- [Deploying a Rasa Open Source Assistant in Docker Compose](https://rasa.com/docs/rasa/docker/deploying-in-docker-compose)
+
+Error Handling
+- [Fallback: ensure your assistant fail gracefully](https://rasa.com/docs/rasa/fallback-handoff)
+
+
 ## Blogs
 [Five Levels of AI Assistants in Enterprise](https://rasa.com/blog/conversational-ai-your-guide-to-five-levels-of-ai-assistants-in-enterprise/)
 2018, RASA
