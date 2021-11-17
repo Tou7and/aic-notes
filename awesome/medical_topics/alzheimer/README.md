@@ -1,5 +1,26 @@
-# Alzheimer and Speech
+# Alzheimer: what causes Alzheimer Dementia? 
+
+## Microbes Hypothesis
+- [微生物感染：阿茲海默症的可能病因帶來新的治療希望](https://www.bbc.com/zhongwen/trad/science-59093440)
+- [What if dormant microbes trigger the onset of Alzheimer's?](https://www.bbc.com/future/article/20211006-what-if-dormant-microbes-trigger-alzheimers)
+
+# Detecting Alzheimer via Speech
 Is it possible to early detect Alzheimer Dementia by analysing the speech of the people?
+- [Linguistic markers predict onset of Alzheimer's disease](https://www.thelancet.com/action/showPdf?pii=S2589-5370%2820%2930327-8)
+- [人工智能成預測失智症能手](https://www.bbc.com/zhongwen/trad/science-54663725)
+
+## [Dementia and language](https://www.alzheimers.org.uk/about-dementia/symptoms-and-diagnosis/symptoms/dementia-and-language)
+- How can dementia affect a person's communications?
+  1. not able to find the right words
+    - use a related word (for example, ‘book’ instead of ‘newspaper’)
+    - use substitutes for words (for example, ‘thing that you sit on’ instead of ‘chair’)
+    - use words that have no meaning
+  2. not able to use the second languages
+    - go back to the first language they learned
+  3. have problems understanding what others said
+    - not able to keep focused
+    - thinking more slowly
+- [Dementia and the brain](https://www.alzheimers.org.uk/about-dementia/symptoms-and-diagnosis/how-dementia-progresses/brain-dementia)
 
 ## Papers of Alzheimer and Speech
 
