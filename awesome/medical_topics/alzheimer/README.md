@@ -1,18 +1,35 @@
 # Alzheimer and Speech
+Is it possible to early detect Alzheimer Dementia by analysing the speech of the people?
 
-## ADReSS
+## Papers of Alzheimer and Speech
+
+### [Alzheimer's disease and automatic speech analysis: a review](https://www.sciencedirect.com/science/article/pii/S0957417420300397)
+- Pulido, M. L. B., Hernández, J. B. A., Ballester, M. Á. F., González, C. M. T., Mekyska, J., & Smékal, Z. (2020). Alzheimer's disease and automatic speech analysis: a review. Expert systems with applications, 150, 113213.
+- Language problems are considered one of the most characteristic symptoms of AD
+- Primary progressive aphasia (PPA)
+- Linguistic tests
+  - People with AD have more difficulties in these tests
+  - Patterns: repeat the same ideas / less informative / simpler language structures / longer and empty pauses / monotonous prosody
+  - Skills for evaluation: identification / comprehension / repetition / reading / Spontaneous Speech (SS)
+- Alzheimer’s disease and voice processing
+  - The techniques for analysis are very closed to speech emotion recognition
+- Conclusion
+  - Using ML algorithms to classify linguistic biomarkers through the verbal statements will facilitate the clinical diagnosis of AD
+  - There is a need to train the evolving control models on larger data sets
+
+
+# [The ADReSSo Challenge](http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/#baseline)
 Alzheimer's Dementia Recognition through Spontaneous Speech
 
-[The ADReSSo Challenge Home Pages](http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/#baseline)
+## Papers of ADReSS
 
-### Papers
-[Alzheimer’s Dementia Recognition through Spontaneous Speech: The ADReSS Challenge](https://arxiv.org/pdf/2004.06833.pdf)
+### [Alzheimer’s Dementia Recognition through Spontaneous Speech: The ADReSS Challenge](https://arxiv.org/pdf/2004.06833.pdf)
 - INTERSPEECH 2020
 
-[Detecting cognitive decline using speech only: The ADReSSo Challenge](http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/LuzEtAl21ADReSSo.pdf)
+### [Detecting cognitive decline using speech only: The ADReSSo Challenge](http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/LuzEtAl21ADReSSo.pdf)
 - Baseline Classification and regression Results
 
-[Tackling the ADReSS challenge: a multimodal approach to the automated recognition of Alzheimer’s dementia](http://www.interspeech2020.org/uploadfile/pdf/Wed-SS-1-6-1.pdf)
+### [Tackling the ADReSS challenge: a multimodal approach to the automated recognition of Alzheimer’s dementia](http://www.interspeech2020.org/uploadfile/pdf/Wed-SS-1-6-1.pdf)
 - INTERSPEECH 2020
 - Dataset
   - recordings and transcripts of Cookie Theft picture descriptions
@@ -31,20 +48,9 @@ Alzheimer's Dementia Recognition through Spontaneous Speech
   - For classification, accuracy is used for the performance evaluation
   - For regression, root mean square error (RMSE) is used
 
-
-## Papers
-[Pulido, M. L. B., Hernández, J. B. A., Ballester, M. Á. F., González, C. M. T., Mekyska, J., & Smékal, Z. (2020). Alzheimer's disease and automatic speech analysis: a review. Expert systems with applications, 150, 113213.](https://www.sciencedirect.com/science/article/pii/S0957417420300397)
-2020, review
-- Language problems are considered one of the most characteristic symptoms of AD
-- Primary progressive aphasia (PPA)
-- Linguistic tests
-  - People with AD have more difficulties in these tests
-  - Patterns: repeat the same ideas / less informative / simpler language structures / longer and empty pauses / monotonous prosody
-  - Skills for evaluation: identification / comprehension / repetition / reading / Spontaneous Speech (SS)
-- Alzheimer’s disease and voice processing
-  - The techniques for analysis are very closed to speech emotion recognition
-- Conclusion
-  - Using ML algorithms to classify linguistic biomarkers through the verbal statements will facilitate the clinical diagnosis of AD
-  - There is a need to train the evolving control models on larger data sets
-
+### [Classifying Alzheimer's Disease Using Audio and Text-Based Representations of Speech](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.624137/full)
+- audio features: i-vectors and x-vectors
+- text features: word vectors, BERT embeddings, LIWC features, and CLAN features
+- model for AD detect: neural networks
+- model for MMSE scores: regression models
 
