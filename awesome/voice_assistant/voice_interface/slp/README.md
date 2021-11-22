@@ -1,6 +1,5 @@
 # SLP: Speech and Language Processing
-The term SLP is used in the introduction section of the
-[MOCKINGJAY Paper (2020)](https://arxiv.org/pdf/1910.12638.pdf).
+> Input = Speech waveforms(?)
 
 # SUPERB: Speech processing Universal PERformance Benchmark
 [SUPERB official site](https://superbbenchmark.org/)
@@ -27,8 +26,7 @@ The term SLP is used in the introduction section of the
 - discriminative modeling
 - multi-task learning
 
-
-# Papers of self-supervised learning
+# Papers: Generative Self-supervised Learning
 
 ## [MOCKINGJAY (2020)](https://arxiv.org/pdf/1910.12638.pdf)
 - Mockingjay: Unsupervised speech representation learning with deep bidirectional transformer encoders.
@@ -56,13 +54,39 @@ The term SLP is used in the introduction section of the
   - frequency alteration
   - magnitude alteration
 
-## [HuBert(2021)](https://arxiv.org/abs/2106.07447)
-- [Hubert on HugglingFace](https://huggingface.co/transformers/model_doc/hubert.html)
+# Papers: Discriminative Self-supervised Learning
 
-## [UniSpeech-SAT](Universal Speech Representation Learning with Speaker Aware Pre-Training)
+## wav2vec Series
+[UNSUPERVISED CROSS-LINGUAL REPRESENTATION LEARNING FOR SPEECH RECOGNITION](https://arxiv.org/pdf/2006.13979.pdf)
+- XLSR-53
+
+[XLS-R: SELF-SUPERVISED CROSS-LINGUAL SPEECH REPRESENTATION LEARNING AT SCALE](https://arxiv.org/pdf/2111.09296.pdf)
+- XLS-R (0.3B)
+- XLS-R (1B)
+- XLS-R (2B)
+
+
+## UniSpeech Series
+### [UniSpeech-SAT](Universal Speech Representation Learning with Speaker Aware Pre-Training)
 - [microsoft/UniSpeech](https://github.com/microsoft/UniSpeech)
+- [HugglingFace: Unispeech-SAT](https://huggingface.co/transformers/model_doc/unispeech_sat.html)
 - powerful performance on various speaker related benchmarks
 
+### [HuBert(2021)](https://arxiv.org/abs/2106.07447)
+- [Hubert on HugglingFace](https://huggingface.co/transformers/model_doc/hubert.html)
+
+
+
+# Papers: Multi-task Self-supervised Learning
+
+## [PASE+: Multi-task self-supervised learning for Robust Speech Recognition](https://arxiv.org/abs/2001.09239)
+- Problem Agnostic Speech Encoder
+- Official Github: [santi-pdp/pase](https://github.com/santi-pdp/pase)
+
 ## [WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing](https://arxiv.org/pdf/2110.13900.pdf)
+- Tasks
+  - M-P + VQ 
+  - GREP
+  - Utterance Mixing
 
 
