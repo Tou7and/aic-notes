@@ -57,6 +57,16 @@
 # Papers: Discriminative Self-supervised Learning
 
 ## wav2vec Series
+[wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/pdf/2006.11477.pdf)
+- 2020, Facebook AI
+- Model pipeline
+  - Feature encoder: 7 blocks, 512 channels each block, about 20ms stride between each sample
+  - Transformers: BASE contains 12 transformer blocks, model dimension 768, inner dimension (FFN) 3,072 and 8 attention heads
+  - Quantization module: G(groupd) = 2 and V(entries) = 320, theoretical maximum codewords = 102.4k
+- Pre-training tasks (contrastive)
+  - try to identify the true quantized representation for a masked time step within a set of distractors
+
+
 [UNSUPERVISED CROSS-LINGUAL REPRESENTATION LEARNING FOR SPEECH RECOGNITION](https://arxiv.org/pdf/2006.13979.pdf)
 - XLSR-53
 
@@ -74,7 +84,6 @@
 
 ### [HuBert(2021)](https://arxiv.org/abs/2106.07447)
 - [Hubert on HugglingFace](https://huggingface.co/transformers/model_doc/hubert.html)
-
 
 
 # Papers: Multi-task Self-supervised Learning
