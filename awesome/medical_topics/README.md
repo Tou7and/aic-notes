@@ -1,4 +1,16 @@
-## Medical Speech Recognition
+# [Medical and Health Care](http://mahc.ntu.edu.tw/news.php)
+科技部補助人工智慧技術暨全幅健康照護聯合研究中心
+- 全幅健康照護中心
+- 計畫補助單位：科技部
+
+研究團隊 
+- 醫學影像
+- 智慧用藥
+- 輔助決策
+- 精神照護
+- 醫療法規
+
+# Medical Speech Recognition
 
 [speech recognition for medical conversation](https://arxiv.org/pdf/1711.07274.pdf)
 ASR Systems for transcribing doctor-patient conversations, 2018, Google
