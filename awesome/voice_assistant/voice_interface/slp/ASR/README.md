@@ -2,68 +2,78 @@
 Automatic Speech Recognition
 
 # Frameworks
+Tools for building ASR systems
 
-[SpeechBrain](https://github.com/speechbrain/speechbrain)
-- Release: April, 2021
+## Kaldi
+- Build on top of OpenFST
+- HMM-GMM
+- HMM-DNN
 
+## NeMo
+- Nividia
+
+## FairSeq
+- Facebook
+
+## SpeechBrain
+- [Github/SpeechBrain](https://github.com/speechbrain/speechbrain)
+  - Release: April, 2021
+- [SpeechBrain: A General-Purpose Speech Toolkit](https://arxiv.org/pdf/2106.04624.pdf)
+  - 2021, Mirco Ravanelli, Titouan Parcollet, Yoshua Bengio
+
+## Meta Transfer Learning
 [meta transfer learning](https://github.com/audioku/meta-transfer-learning)
 - meta training
 - joint training
 - transfer training 
 
-# Papers 
-
-## FST based ASR
+# FST based ASR
+Common approaches: use Kaldi
 
 [Povey, Daniel, et al. "The Kaldi speech recognition toolkit." IEEE 2011 workshop on automatic speech recognition and understanding. No. CONF. IEEE Signal Processing Society, 2011.](https://infoscience.epfl.ch/record/192584/files/Povey_ASRU2011_2011.pdf)
 2011, Utilize OpenFST, HCLG decoding grpah
 
+# End-to-End ASR
+Common approaches: 
+- CTC
+- Attention Models
+  - LAS
+  - Transformers
+- Transducers
 
-## End-to-End ASR
+[On the Comparison of Popular End-to-End Models for Large Scale Speech Recognition](https://www.isca-speech.org/archive/Interspeech_2020/pdfs/2846.pdf)
+2020, Benmarks of E2E ASR Models
 
-[Sequence Transduction with Recurrent Neural Networks](https://arxiv.org/pdf/1211.3711.pdf)
-- 2012, ICML 2012 Workshop on Representation Learning, University of Toronto
-- RNN Transducer, RNN-T (but we can use other model instead of RNN)
 
+## CTC
 [Graves, Alex, and Navdeep Jaitly. "Towards end-to-end speech recognition with recurrent neural networks." International conference on machine learning. PMLR, 2014.](http://proceedings.mlr.press/v32/graves14.pdf)
 2014, ASR without requiring an intermediate phonetic representation
 
+## Attention Models
 [Chorowski, Jan, et al. "End-to-end continuous speech recognition using attention-based recurrent NN: First results." arXiv preprint arXiv:1412.1602 (2014).](https://arxiv.org/pdf/1412.1602)
 2014, The alignment between the input and output sequences is established using an attention mechanism
 
 [Chan, W., Jaitly, N., Le, Q., & Vinyals, O. (2016, March). Listen, attend and spell: A neural network for large vocabulary conversational speech recognition. In 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 4960-4964). IEEE.](https://research.google/pubs/pub44926.pdf)
 2016, The LAS structure proposed by Google Brain
 
+## CTC + Attention
 [Watanabe, Shinji, et al. "Hybrid CTC/attention architecture for end-to-end speech recognition." IEEE Journal of Selected Topics in Signal Processing 11.8 (2017): 1240-1253.](https://www.merl.com/publications/docs/TR2017-190.pdf)
 2017, 三菱電器研究實驗室, espnet
 
+## Transformers
 [Dong, Linhao, Shuang Xu, and Bo Xu. "Speech-transformer: a no-recurrence sequence-to-sequence model for speech recognition." 2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2018.](https://ieeexplore.ieee.org/abstract/document/8462506/)
 2018, Transformer for speech recognition
-
-[Sainath, T. N., Pang, R., Rybach, D., He, Y., Prabhavalkar, R., Li, W., ... & Chiu, C. C. (2019). Two-pass end-to-end speech recognition. arXiv preprint arXiv:1908.10992.](https://arxiv.org/pdf/1908.10992.pdf)
-2019, Transducer ASR: the RNN-T model produces streaming predictions and the LAS decoder finalizes the prediction during inference
-
-[Zhang, Qian, et al. "Transformer transducer: A streamable speech recognition model with transformer encoders and rnn-t loss." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020.](https://arxiv.org/pdf/2002.02562)
-2020, Similar to RNN-T but use Transformer encoder instead of RNN 
 
 [Conformer: Convolution-augmented Transformer for Speech Recognition](https://arxiv.org/abs/2005.08100)
 convolution-augmented transformer for speech recognition, 2020, Google
 
-[On the Comparison of Popular End-to-End Models for Large Scale Speech Recognition](https://www.isca-speech.org/archive/Interspeech_2020/pdfs/2846.pdf)
-2020, Benmarks of E2E ASR Models
 
-[Transformer Transducer: A Streamable Speech Recognition Model with Transformer Encoders and RNN-T Loss](https://arxiv.org/abs/2002.02562)
-2020, Google.
+## Transducers
+End-to-end network architecture for streaming ASR.
 
-[DEVELOPING REAL-TIME STREAMING TRANSFORMER TRANSDUCER FOR SPEECH RECOGNITION ON LARGE-SCALE DATASET](https://arxiv.org/pdf/2010.11395.pdf)
-2021, Microsoft.
-- Real Time (RTF < 1)
-- transducer architecture
-- Transformer-XL and chunk-wise streaming
+The architecture basically consists of a Audio Encoder, a Label Encoder, and a Joint Network.
 
-[SpeechBrain: A General-Purpose Speech Toolkit](https://arxiv.org/pdf/2106.04624.pdf)
-2021, Mirco Ravanelli, Titouan Parcollet, Yoshua Bengio
-
+See transducer for more.
 
 ## Multi-lingual / Code-Switching
 
