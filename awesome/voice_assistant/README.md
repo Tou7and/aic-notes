@@ -57,3 +57,8 @@ Tasks
 # Githubs
 [IBM/watson-voice-bot](https://github.com/IBM/watson-voice-bot)
 
+[flask-chatbot](https://github.com/dongido001/flask_chatbot)
+
+[awesome-flask](https://github.com/humiaozuzu/awesome-flask)
+- [chat - a live chat built with python (flask + gevent + apscheduler) + redis](https://github.com/lzyy/chat)
+- [chatapp - Flask and Angular.js Chat Application using Socket.io](https://github.com/vinceprignano/chatapp)

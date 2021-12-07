@@ -36,6 +36,11 @@ Real fast, real time.
   - Label Encoder
   - Joint Network
 
+## IMPROVING RNN TRANSDUCER MODELING FOR END-TO-END Speech Recognition
+- [arxiv](https://arxiv.org/pdf/1909.12415.pdf)
+- 2019, Microsoft Speech and Language Group
+- The encoder and prediction network compose a grid of alignments, and the posteriors need to be calculated at each point in the grid to perform the forward-backward training of RNN-T. The three-dimension tensor requires much more memory than what is required in AED or CTC training
+
 ## Developing RNN-T Models Surpassing High-Performance Hybrid Models with Customization Capability
 - [arxiv](https://arxiv.org/pdf/2007.15188.pdf)
 - 2020, Microsoft Speech and Language Group
@@ -47,6 +52,8 @@ Real fast, real time.
   - Improving initialization
   - Improving encoder
   - Customizing RNN-T models with text-only data
+- Data: 65 thousand (K) hours of transcribed Microsoft data.
+  - The test set covers 13 application scenarios such as Cortana and far-field speech (total 1.8 million words)
 
 ## Developing Real-Time Streaming Transformer Transducer For Speech Recognition on Large-Scale Dataset
 - [arxiv](https://arxiv.org/pdf/2010.11395.pdf)
