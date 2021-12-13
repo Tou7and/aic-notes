@@ -1,15 +1,13 @@
 # SLP: Speech and Language Processing
 > Input = Speech waveforms(?)
 
-# SUPERB: Speech processing Universal PERformance Benchmark
-[SUPERB official site](https://superbbenchmark.org/)
-
-[SUPERB official paper](https://arxiv.org/pdf/2105.01051.pdf)
-
-## SUPERB: Downstream Tasks for benchmarking
-[SUPERB](https://superbbenchmark.org/tasks) 
-- defines 6 domains of speech processing tasks
-- use 10 tasks from 4 domains to do the benchmarks
+# [SUPERB: Speech processing Universal PERformance Benchmark](https://arxiv.org/pdf/2105.01051.pdf)
+> Yang, Shu-wen, et al. "SUPERB: Speech processing Universal PERformance Benchmark." arXiv preprint arXiv:2105.01051 (2021).
+> [SUPERB official site](https://superbbenchmark.org/)
+- SUPERB is a leaderboard to benchmark the performance of a shared model across a wide range of speech processing tasks with minimal architecture changes and labeled data
+- Propose a simple framework to solve all SUPERB tasks (source code: [S3PRL](https://github.com/s3prl/s3prl))
+- 將 SSL 的學習方法(Upstream Techniques)分為三種: Generative Modeling, Discriminative Modeling, Multi-task Learning
+- 會執行十個下游任務(Downstream Tasks)，分別是: ASR, PR, KS, QbE, IC, SF, SID, SV, SD, ER ([SUPERB/tasks](https://superbbenchmark.org/tasks))
   - ASR: Automatic Speech Recognition
   - PR: Phoneme Recognition
   - KS: Keyword Spotting
@@ -21,12 +19,7 @@
   - SD: Speaker Diarization
   - ER: Emotion Recognition
 
-## SUPERB: Upstream Techniques for learning good representations (self-supervised learning)
-- generative modeling
-- discriminative modeling
-- multi-task learning
-
-# Papers: Generative Self-supervised Learning
+# Generative Modeling as Main Learning Methods
 
 ## [MOCKINGJAY (2020)](https://arxiv.org/pdf/1910.12638.pdf)
 - Mockingjay: Unsupervised speech representation learning with deep bidirectional transformer encoders.
@@ -54,7 +47,7 @@
   - frequency alteration
   - magnitude alteration
 
-# Papers: Discriminative Self-supervised Learning
+# Discriminative Modeling as Main Learning Methods
 
 ## wav2vec Series
 [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/pdf/2006.11477.pdf)
@@ -65,7 +58,6 @@
   - Quantization module: G(groupd) = 2 and V(entries) = 320, theoretical maximum codewords = 102.4k
 - Pre-training tasks (contrastive)
   - try to identify the true quantized representation for a masked time step within a set of distractors
-
 
 [UNSUPERVISED CROSS-LINGUAL REPRESENTATION LEARNING FOR SPEECH RECOGNITION](https://arxiv.org/pdf/2006.13979.pdf)
 - XLSR-53
@@ -86,7 +78,7 @@
 - [Hubert on HugglingFace](https://huggingface.co/transformers/model_doc/hubert.html)
 
 
-# Papers: Multi-task Self-supervised Learning
+# Multi-task Learning as Main Learning Methods
 
 ## [PASE+: Multi-task self-supervised learning for Robust Speech Recognition](https://arxiv.org/abs/2001.09239)
 - Problem Agnostic Speech Encoder
