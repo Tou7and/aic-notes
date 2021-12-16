@@ -1,9 +1,7 @@
 # Upstream Models
 Upstream models learn to produce a better representations from the pre-training tasks.
 
-[SuperB](https://arxiv.org/pdf/2105.01051.pdf) categorized SSL models into three learning approaches: generative
-modeling, discriminative modeling, and multi-task learning
-
+[SuperB](https://arxiv.org/pdf/2105.01051.pdf) categorized SSL models into three learning approaches: 
 1. Generative Modeling
   - pretraining with "generative loss"
 
@@ -11,7 +9,7 @@ modeling, discriminative modeling, and multi-task learning
   - pretraining with "discriminative loss"
 
 3. Multi-task Learning
-  - Many pretraining objectives are adopted
+  - Multiple pretraining objectives are adopted
 
 
 # Generative Modeling as Main Learning Methods
@@ -52,6 +50,9 @@ Model Architecture
 > In Interspeech, pp. 3760–3764, 2020.
 > Massachusetts Institute of Technology (MIT)
 
+- Recent studies on VQ for representation learning, mostly motivated by the discrete nature of phonetic units, attempt to show that enforcing the quantization leads to a better representation for acoustic unit discovery [16, 17] and automatic speech recognition [7, 18]. 
+- In contrast, our goal is not to discover the discrete units in speech. We treat VQ as a general approach to limit the model capacity, and study its impact on the information encoded in the learned representations.
+
 
 ## [MOCKINGJAY](https://arxiv.org/pdf/1910.12638.pdf)
 > Liu, A. T., Yang, S.-w., Chi, P.-H., Hsu, P.-c., and Lee, H.-y. 
@@ -62,19 +63,26 @@ Number of parameters:
 - Mockingjay = 85.12M, trained on LS 360 hr
 
 
-## [DECOAR 2.0](https://arxiv.org/pdf/2012.06659.pdf)
+## [NPC](https://arxiv.org/pdf/2011.00406.pdf)
+> Liu, A. H., Chung, Y. A., & Glass, J. (2020). 
+> Non-autoregressive predictive coding for learning speech representations from local dependencies. 
+> arXiv preprint arXiv:2011.00406. 
+
+
+## [DeCoAR 2.0](https://arxiv.org/pdf/2012.06659.pdf)
 > Ling, S. and Liu, Y. 
 > DeCoAR 2.0: Deep contextualized acoustic representations with vector quantization. 
 > arXiv preprint arXiv:2012.06659, 2020.
 > Amazon AWS AI
 
-- DECOAR = DEep COntextualized Acoustuc Representations with vector quantization
-- Masked Reconstration with Vector Quantization
-- Contribution
+DECOAR = DEep COntextualized Acoustuc Representations with vector quantization
+
+Contribution (compared to DeCoAR 1.0)
   - use Transformer as encoding block instead of LSTM (vanilla DeCoAR)
   - the addition of a vector quantization layer
   - a new objective function that combines masked-based reconstruction loss with VQ diversity loss
-- Exp Settings (similar to wav2vec2.0)
+
+Exp Settings (similar to wav2vec2.0)
   - model dimension = 768
   - the inner dimension in feed forward sublayer = 3072
   - attention heads = 8
@@ -85,7 +93,7 @@ Number of parameters:
 This work categorized the proxy tasks in learning speech representation into two types. 
 - The first type is based on contrastive loss
   - The wav2vec and its variants
-  - The model is trained to learn representations containing information that most discriminates the future or masked frame from a set of negative sample via contrastive loss. 
+  - The model is trained to learn representations containing information that most discriminates the future or masked frame from a set of negative sample via contrastive loss.
 - The second type is based on reconstructive loss. 
   - The proxy task for these representation learning methods is to reconstruct temporal slices of acoustic features based on contextual
 information. 
@@ -93,7 +101,6 @@ information.
   - APC and its follow-up are examples to use autoregressive reconstruction loss. 
   - In many state-of-the-art pretrained language model task, masked-based prediction is adopted in the proxy tasks such as BERT and XLNet. 
   - In speech, instead of prediction, we randomly mask temporal slices of acoustic features and attempt to reconstruct them 
-
 
 
 ## [TERA](https://arxiv.org/pdf/2007.06028.pdf)
@@ -106,7 +113,6 @@ information.
   - time alteration
   - frequency alteration
   - magnitude alteration
-
 
 
 # Discriminative Modeling as Main Learning Methods
@@ -228,12 +234,19 @@ both spoken content modeling and speaker identity preservation.
 
 
 
-# Multi-task Learning as Main Learning Methods
+# Multi-task Learning as Self-learning Methods
+Multiple pretraining objectives are adopted.
+(看到用很多種 loss 都先放這邊)
+
 
 ## [PASE+: Multi-task self-supervised learning for Robust Speech Recognition](https://arxiv.org/abs/2001.09239)
-- Problem Agnostic Speech Encoder
-- Official Github: [santi-pdp/pase](https://github.com/santi-pdp/pase)
+> Ravanelli, M., Zhong, J., Pascual, S., Swietojanski, P., Monteiro, J., Trmal, J., & Bengio, Y. (2020, May). 
+> Multi-task self-supervised learning for robust speech recognition. 
+> In ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 6989-6993). IEEE.
+> Official Github: [santi-pdp/pase](https://github.com/santi-pdp/pase)
 
+- Problem Agnostic Speech Encoder
+- Encoder and workers are jointly trained with backpropagation by optimizing a total loss that is computed as the average of each worker cost
 
 
 
@@ -251,4 +264,7 @@ Number of parameters:
 Data:
 - Libri-Light unlab-60k subset for pre-training w2v-BERT
 - LibriSpeech 960hr subset for main ASR results
+
+
+
 
