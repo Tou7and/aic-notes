@@ -15,7 +15,7 @@ modeling, discriminative modeling, and multi-task learning
 
 
 # Generative Modeling as Main Learning Methods
-
+Models are pretrained with "generative loss" or "rescontruction loss".
 
 ## [APC](https://arxiv.org/pdf/1904.03240.pdf)
 > Chung, Y.-A., Hsu, W.-N., Tang, H., and Glass, J. 
@@ -109,14 +109,14 @@ information.
 
 
 
-
-
 # Discriminative Modeling as Main Learning Methods
+Models are pretrained with "discriminative loss" or "contrastive loss".
 
 ## [CPC](https://arxiv.org/pdf/1807.03748.pdf)
 > Oord, A. V. D., Li, Y., & Vinyals, O. (2018). 
 > Representation learning with contrastive predictive coding. 
 > arXiv preprint arXiv:1807.03748.
+> DeepMind (acquired by Google in 2014).
 
 - Use a probabilistic contrastive loss which induces the latent space to capture information that is maximally useful to predict future samples
 

@@ -1,5 +1,7 @@
 # Voice Interface
-For now, I consider the techniques to implement a voice interface (語音介面) into two parts,
+For now, I consider the techniques to implement a voice interface (語音介面) into two parts.
+- SLP: core modules that perform the speech language processing
+- protocols: the communication protocols requried to build the applications.
 
 
 # Tools / Applications
