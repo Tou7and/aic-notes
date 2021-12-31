@@ -103,6 +103,10 @@ Language Entropy, M-index, I-index, 2017.
 2021, Data Augmentation
 
 
+[Multilingual Training and Cross-lingual Adaptation on CTC-based Acoustic Model](https://arxiv.org/pdf/1711.10025.pdf)
+
+
+
 ## Syllable Based Methods
 
 [Syllable-Based Sequence-to-Sequence Speech Recognition with the Transformer in Mandarin Chinese](https://arxiv.org/pdf/1804.10752.pdf)

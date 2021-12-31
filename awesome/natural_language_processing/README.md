@@ -1,5 +1,8 @@
 # Nature Language Processing
 
+- [Summary of NLP Tasks](https://huggingface.co/docs/transformers/task_summary)
+
+
 
 # Tools and Frameworks
 

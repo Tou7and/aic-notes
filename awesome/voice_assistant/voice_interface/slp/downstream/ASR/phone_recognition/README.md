@@ -20,3 +20,7 @@ Maybe a well-trained PR model and corresponding P2G model(s) can also work as a 
 The model leverages the pretrained checkpoint wav2vec2-large-lv60 and is fine-tuned on CommonVoice to recognize phonetic labels in multiple languages.
 
 
+# Tools for Syllable Processing
+- [xpinyin](https://github.com/lxneng/xpinyin)
+- [Dragon-Mapper](https://github.com/tsroten/dragonmapper)
+
