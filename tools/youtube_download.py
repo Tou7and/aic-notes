@@ -95,6 +95,7 @@ class YoutubeDownloader:
 def download_wave_from_youtube(link, dst_filename, dst_dir="/Users/mac/Downloads/"):
     # cwd = os.getcwd()
     # tmp_dir = os.path.join(cwd, "tmp")
+    link = link.replace("\\", "")
     ydl_p = YoutubeDownloader(link, storage_dir=dst_dir, dst_format="mp3", dst_filename=dst_filename)
     ydl_p.run()
 
