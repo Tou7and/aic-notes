@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mp3_dir="/Users/mac/data/audio/mp3/michal_jackson"
-nc_dir="/Users/mac/data/audio/mp3/michal_jackson/nightcore"
+mp3_dir="/Users/mac/data/audio/mp3/kotoko/"
+nc_dir="/Users/mac/data/audio/mp3/kotoko/nightcore"
 
 mkdir $nc_dir
 
