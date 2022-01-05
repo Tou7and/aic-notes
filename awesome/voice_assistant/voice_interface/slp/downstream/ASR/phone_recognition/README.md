@@ -16,8 +16,25 @@ Maybe a well-trained PR model and corresponding P2G model(s) can also work as a 
 
 ## wav2vec2-lv-60-espeak
 - [checkpoint on HuggingHub](https://huggingface.co/facebook/wav2vec2-lv-60-espeak-cv-ft)
-- [Simple and Effective Zero-shot Cross-lingual Phoneme Recognition](https://arxiv.org/abs/2109.11680)
-The model leverages the pretrained checkpoint wav2vec2-large-lv60 and is fine-tuned on CommonVoice to recognize phonetic labels in multiple languages.
+
+### [Simple and Effective Zero-shot Cross-lingual Phoneme Recognition](https://arxiv.org/abs/2109.11680)
+- Data:
+  - CommonVoice (42 languages)
+  - BABEL (19 languages)
+  - MLS (six languages)
+
+- Model:
+  - pretrained checkpoint wav2vec2-large-lv60
+  - fine-tuned on CommonVoice to recognize phonetic labels in multiple languages
+
+- Phoeme Symbols: IPA (International Phonetic Alphabet)
+
+### [G2P: Grapheme-to-phoneme transduction for cross-language asr](http://www.camille-g.com/slsp20.pdf)
+> M. Hasegawa-Johnson et al., SLSP. Springer, 2020.
+
+- Why IPA
+- Training and Testing G2P
+- 
 
 
 # Tools for Syllable Processing

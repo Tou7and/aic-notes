@@ -9,6 +9,13 @@ Tools for building ASR systems
 - HMM-GMM
 - HMM-DNN
 
+## ESPNET
+- [espnet/espnet](https://github.com/espnet/espnet)
+- [THE 2020 ESPNET UPDATE](https://arxiv.org/pdf/2012.13006.pdf)
+  - Broadened applications: from ASR to TTS, VC, ST(translation), SE(enhancement).
+  - Many neural architectures and learning methods: Transformer, conformer, RNN-T, ...
+
+
 ## NeMo
 - Nividia
 
