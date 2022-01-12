@@ -1,3 +1,3 @@
-# aic-notes
-Some shared notes and results. 
+# AIC Notes
+Take some notes as memory backup.
 
