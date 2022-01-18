@@ -1,5 +1,10 @@
 # Phoneme Recognition
-Convert Wave to phones.
+Convert Wave to units in the phoneme level.
+
+What can a PR model do?
+- A good PR model can work with forced alignment tasks to help detecting and correcting the errors.
+  - [forced-alignments: commonly used for FST-based ASR training](https://isip.piconepress.com/projects/speech/software/tutorials/production/fundamentals/v1.0/section_04/s04_04_p01.html)
+
 
 
 # From Phoneme Recognition to Speech Recognition
