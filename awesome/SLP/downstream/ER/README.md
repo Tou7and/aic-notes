@@ -1,4 +1,14 @@
 # ER: Emotion Recognition
+predicts an emotion class for each utterance.
+
+
+## Dataset
+IEMOCAP
+
+
+## Metrics
+ACC
+
 
 # Tools
 

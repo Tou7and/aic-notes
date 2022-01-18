@@ -3,6 +3,15 @@
 - Defined in the context of speech processing. 
 - Deals with the identification of keywords in utterances.
 
+## Dataset
+Speech Commands dataset v1.0
+- ten classes of keywords
+- a class for silence
+- and an unknown class to include the false positive.
+
+## Metrics
+The evaluation metric is accuracy (ACC).
+
 ## Papers
 
 [Keyword Spotting for Google Assistant Using Contextual Speech Recognition](https://static.googleusercontent.com/media/research.google.com/zh-TW//pubs/archive/46554.pdf)
