@@ -204,33 +204,8 @@ Number of parameters:
 - XLS-R (1B)
 - XLS-R (2B)
 
-## UniSpeech Series
-### [UniSpeech-SAT](Universal Speech Representation Learning with Speaker Aware Pre-Training)
-- [microsoft/UniSpeech](https://github.com/microsoft/UniSpeech)
-- [HugglingFace: Unispeech-SAT](https://huggingface.co/transformers/model_doc/unispeech_sat.html)
-- powerful performance on various speaker related benchmarks
-
-### [HuBert(2021)](https://arxiv.org/abs/2106.07447)
-- HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units
-- Hsu et al., 2021a
-- [Hubert on HugglingFace](https://huggingface.co/transformers/model_doc/hubert.html)
-
-Number of parameters & data:
-- HuBERT Base = 94.68M, trained on LS 960 hr
-- HuBERT Large = 316.61M, trained on LL 60k hr
 
 
-## [WavLM: Large-Scale Self-Supervised Pre-Training for Full Stack Speech Processing](https://arxiv.org/pdf/2110.13900.pdf)
-Tasks:
-- M-P + VQ 
-- GREP
-- Utterance Mixing
-
-Number of parameters:
-- WavLM Large: 316.62M
-
-- WavLM is built based on the HuBERT framework, with an emphasis on
-both spoken content modeling and speaker identity preservation.
 
 
 
