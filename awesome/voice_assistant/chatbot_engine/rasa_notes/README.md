@@ -35,6 +35,7 @@
 ### 4 - Error Handling
 交談中的例外與錯誤處理 (deal with unhappy path)
 - [Fallback: ensure your assistant fail gracefully](https://rasa.com/docs/rasa/fallback-handoff)
+- [Handling Unexpected Input](https://rasa.com/docs/rasa/unexpected-input/)
 
 
 ## RASA Actions
