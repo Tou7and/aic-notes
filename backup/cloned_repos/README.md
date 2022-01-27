@@ -1,8 +1,18 @@
 # Cloned Repos
 Just recording the repos I have cloned before.
 
+## Common
+Repositories that I commonly used.
+
+- [youtube-dl](https://github.com/l1ving/youtube-dl.git)
+- [speechbrain](https://github.com/speechbrain/speechbrain.git)
+- [NeMo](https://github.com/NVIDIA/NeMo.git)
+- [ffmpeg python](https://github.com/kkroening/ffmpeg-python.git)
+- [nightcore](https://github.com/SeparateRecords/nightcore.gi)
 
 ## CE 2021
+Repositories that I cloned in 2021.
+
 - [audio gui](https://github.com/danijel3/audio_gui.git)
 - [VoiceBot Watson](https://github.com/Najibsaurus/VoiceBot-Watson.git)
 - [IBM/watson-voice-bot](https://github.com/IBM/watson-voice-bot.git)
