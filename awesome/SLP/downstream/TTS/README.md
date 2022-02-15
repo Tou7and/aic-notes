@@ -2,6 +2,11 @@
 Some documents and tools for speech synthesis.
 
 
+# phoneme synthesis
+[Web tools for phone synthesis provided by itinerarium](https://itinerarium.github.io/phoneme-synthesis/)
+- [source: itinerarium/phoneme-synthesis](https://github.com/itinerarium/phoneme-synthesis/)
+
+
 # WaveNet
 [WaveNet: A Generative Model for Raw Audio](https://arxiv.org/abs/1609.03499)
 > [Submitted on 12 Sep 2016 (v1), last revised 19 Sep 2016 (this version, v2)]

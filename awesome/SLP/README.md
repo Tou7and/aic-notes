@@ -6,6 +6,8 @@
 1. Pretraining with unlabel data (upstream representations) 
 2. Fine-tuning with labeled data (downstream tasks)
 
+Some call upstream models as foundation models.
+
 ## [SUPERB: Speech processing Universal PERformance Benchmark](https://arxiv.org/pdf/2105.01051.pdf)
 > Yang, Shu-wen, et al. "SUPERB: Speech processing Universal PERformance Benchmark." arXiv preprint arXiv:2105.01051 (2021).
 > [SUPERB official site](https://superbbenchmark.org/)
